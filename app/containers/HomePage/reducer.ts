@@ -1,25 +1,37 @@
-import ActionTypes from './constants';
-import { ContainerState, ContainerActions } from './types';
+import { createSlice } from '@reduxjs/toolkit';
 
-// The initial state of the App
-export const initialState: ContainerState = {
-  username: '',
+export const initialState = {
+  login: {
+    isLoading: false,
+    isError: '',
+    data: null,
+  },
 };
 
-// Take this container's state (as a slice of root state), this container's actions and return new state
-function homeReducer(
-  state: ContainerState = initialState,
-  action: ContainerActions,
-): ContainerState {
-  switch (action.type) {
-    case ActionTypes.CHANGE_USERNAME:
-      return {
-        // Delete prefixed '@' from the github username
-        username: action.payload.replace(/@/gi, ''),
-      };
-    default:
-      return state;
-  }
-}
+const configSlice = createSlice({
+  name: 'home',
+  initialState,
+  reducers: {
+    loginLoading(state) {
+      state.login.isLoading = true;
+      state.login.isError = '';
+      state.login.data = null;
+    },
+    loginSuccess(state, action) {
+      state.login.isLoading = false;
+      state.login.isError = '';
+      state.login.data = action.payload;
+    },
+    loginError(state, action) {
+      state.login.isLoading = false;
+      state.login.isError = action.payload;
+      state.login.data = null;
+    },
+  },
+});
 
-export default homeReducer;
+const { actions, reducer } = configSlice;
+
+export const { loginLoading, loginSuccess, loginError } = actions;
+
+export default reducer;

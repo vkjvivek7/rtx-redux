@@ -19,13 +19,13 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';
+import Sidebar from 'components/SideBar';
+import { Grid } from '@material-ui/core';
 
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
   flex-direction: column;
 `;
 
@@ -38,13 +38,34 @@ function App() {
       >
         <meta name="description" content="A React.js Boilerplate application" />
       </Helmet>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/features" component={FeaturePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-      <Footer />
+      {/* <Header /> */}
+      <div>
+        <Grid container spacing={10}>
+          <Grid item xs={3}>
+            <Sidebar />
+          </Grid>
+          <Grid item xs={9}>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/features" component={FeaturePage} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </Grid>
+        </Grid>
+      </div>
+      {/* <div className="row">
+        <div className="col-3">
+          <Sidebar />
+        </div>
+        <div className="col-9">
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/features" component={FeaturePage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
+      </div> */}
+      {/* <Footer /> */}
       <GlobalStyle />
     </AppWrapper>
   );
