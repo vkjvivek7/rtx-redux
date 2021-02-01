@@ -102,92 +102,64 @@ export default function HomePage() {
           content="A React.js Boilerplate application homepage"
         />
       </Helmet>
-      <Paper>
-        <div>
-          <Grid container>
-            <Grid item md sm xs>
-              <TextField
-                id="username"
-                label="Username"
-                type="email"
-                fullWidth
-                autoFocus
-                required
-              />
+      <div style={{ width: '50%', textAlign: 'center' }}>
+        {' '}
+        <Paper elevation="3">
+          <div>
+            <Grid container>
+              <Grid item md sm xs>
+                <TextField
+                  id="username"
+                  label="Username"
+                  type="email"
+                  fullWidth
+                  autoFocus
+                  required
+                />
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid container>
-            <Grid item md sm xs>
-              <TextField
-                id="username"
-                label="Password"
-                type="password"
-                fullWidth
-                required
-              />
+            <Grid container>
+              <Grid item md sm xs>
+                <TextField
+                  id="username"
+                  label="Password"
+                  type="password"
+                  fullWidth
+                  required
+                />
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid container alignItems="center" justify="space-between">
-            <Grid item>
-              <FormControlLabel
-                control={<Checkbox color="primary" />}
-                label="Remember me"
-              />
+            <Grid container alignItems="center" justify="space-between">
+              <Grid item>
+                <FormControlLabel
+                  control={<Checkbox color="primary" />}
+                  label="Remember me"
+                />
+              </Grid>
+              <Grid item>
+                <Button
+                  disableFocusRipple
+                  disableRipple
+                  style={{ textTransform: 'none' }}
+                  variant="text"
+                  color="primary"
+                >
+                  Forgot password ?
+                </Button>
+              </Grid>
             </Grid>
-            <Grid item>
+            <Grid container justify="center" style={{ marginTop: '10px' }}>
               <Button
-                disableFocusRipple
-                disableRipple
-                style={{ textTransform: 'none' }}
-                variant="text"
+                variant="outlined"
                 color="primary"
+                style={{ textTransform: 'none' }}
               >
-                Forgot password ?
+                Login
               </Button>
             </Grid>
-          </Grid>
-          <Grid container justify="center" style={{ marginTop: '10px' }}>
-            <Button
-              variant="outlined"
-              color="primary"
-              style={{ textTransform: 'none' }}
-            >
-              Login
-            </Button>
-          </Grid>
-        </div>
-      </Paper>
-      {/* <div>
-        <CenteredSection>
-          <H2>
-            <FormattedMessage {...messages.startProjectHeader} />
-          </H2>
-          <p>
-            <FormattedMessage {...messages.startProjectMessage} />
-          </p>
-        </CenteredSection>
-        <Section>
-          <H2>
-            <FormattedMessage {...messages.trymeHeader} />
-          </H2>
-          <Form onSubmit={onSubmitForm}>
-            <label htmlFor="username">
-              <FormattedMessage {...messages.trymeMessage} />
-              <AtPrefix>
-                <FormattedMessage {...messages.trymeAtPrefix} />
-              </AtPrefix>
-              <Input
-                id="username"
-                type="text"
-                placeholder="mxstbr"
-                value={username}
-                onChange={onChangeUsername}
-              />
-            </label>
-          </Form>
-          <ReposList {...reposListProps} />
-        </Section>
-      </div> */}
+          </div>
+        </Paper>
+      </div>
     </article>
   );
 }

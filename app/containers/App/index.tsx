@@ -20,54 +20,38 @@ import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';
 import Sidebar from 'components/SideBar';
-import { Grid } from '@material-ui/core';
+import './App.scss';
 
-const AppWrapper = styled.div`
-  margin: 0 auto;
-  display: flex;
-  min-height: 100%;
-  flex-direction: column;
-`;
+// const AppWrapper = styled.div`
+//   margin: 0 auto;
+//   display: flex;
+//   height: 100vh;
+//   flex-direction: column;
+// `;
 
 function App() {
   return (
-    <AppWrapper>
+    <div id="app">
+      {/* <AppWrapper> */}
       <Helmet
         titleTemplate="%s - React.js Boilerplate"
         defaultTitle="React.js Boilerplate"
       >
         <meta name="description" content="A React.js Boilerplate application" />
       </Helmet>
-      {/* <Header /> */}
-      <div>
-        <Grid container spacing={10}>
-          <Grid item xs={3}>
-            <Sidebar />
-          </Grid>
-          <Grid item xs={9}>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/features" component={FeaturePage} />
-              <Route component={NotFoundPage} />
-            </Switch>
-          </Grid>
-        </Grid>
-      </div>
-      {/* <div className="row">
-        <div className="col-3">
-          <Sidebar />
-        </div>
-        <div className="col-9">
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/features" component={FeaturePage} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </div>
-      </div> */}
+      <Sidebar />
+      <main id="page-wrap">
+        <div style={{ padding: '1em 1em' }} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/features" component={FeaturePage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </main>
       {/* <Footer /> */}
-      <GlobalStyle />
-    </AppWrapper>
+      {/* <GlobalStyle /> */}
+      {/* </AppWrapper> */}
+    </div>
   );
 }
 export default hot(App);

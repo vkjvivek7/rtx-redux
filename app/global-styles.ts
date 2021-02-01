@@ -32,6 +32,13 @@ const GlobalStyle = createGlobalStyle`
     font-family: inherit;
     font-size: inherit;
   }
+  main {
+    height: 100%;
+    padding: 3em 2em;
+    text-align: center;
+    background: #b4bad2;
+    overflow: auto;
+  }
 `;
 
 export default GlobalStyle;
