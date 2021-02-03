@@ -29,37 +29,39 @@ const Home = () => {
   const dispatch = useDispatch();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="row">
-        <div className="col-12">
-          <input
-            name="email"
-            ref={register({
-              required: 'Required',
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'invalid email address',
-              },
-            })}
-          />
+    <div className="text-center">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="row">
+          <div className="col-12">
+            <input
+              name="email"
+              ref={register({
+                required: 'Required',
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: 'invalid email address',
+                },
+              })}
+            />
+            <br />
+            {errors.email && errors.email.message}
+          </div>
+          <div className="col-12">
+            <input
+              name="password"
+              type="password"
+              ref={register({
+                minLength: 8,
+              })}
+            />
+          </div>
           <br />
-          {errors.email && errors.email.message}
+          {errors.password && 'Your Password should be greater than 8 letters'}
         </div>
-        <div className="col-12">
-          <input
-            name="password"
-            type="password"
-            ref={register({
-              minLength: 8,
-            })}
-          />
-        </div>
-        <br />
-        {errors.password && 'Your Password should be greater than 8 letters'}
-      </div>
 
-      <button type="submit">Submit</button>
-    </form>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 export default Home;
